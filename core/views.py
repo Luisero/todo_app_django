@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from django.contrib.auth import login as django_login, authenticate
+from django.contrib.auth import login as django_login, authenticate, logout as django_logout
 from django.contrib.auth.decorators import login_required
 # Create your views here.
 from .models import AppUser, TaskToDo
@@ -36,3 +36,9 @@ def singup(request):
         
     else:
         return render(request, 'core/singup.html')
+    
+
+def logout(request):
+    django_logout(request)
+
+    return redirect('index')
