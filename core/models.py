@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class AppUser(User):
-    profile_pic = models.ImageField(null=True)
-    bio = models.TextField(null=True, max_length=150)
+    profile_pic = models.ImageField(null=True, blank=True)
+    bio = models.TextField(null=True, max_length=150, blank=True)
     
 
     def __str__(self):

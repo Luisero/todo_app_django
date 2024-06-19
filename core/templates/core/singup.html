@@ -1,0 +1,42 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block navbar %}
+
+{% block css%}
+    <link rel="stylesheet" href="{% static 'core/css/singup.css' %}">
+{% endblock %}
+
+{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+    <h1>SingUp</h1>
+    <form action="{% url 'singup' %}" method="post">
+            {% csrf_token  %}
+
+        <div class="input-container">
+            <input type="text" name="username" id="" placeholder="Username">
+
+        </div>
+
+        <div class="input-container">
+            <input type="text" name="first_name" id="" placeholder="First name">
+        </div>
+        <div class="input-container">
+            <input type="text" name="last_name" id="" placeholder="Last name">
+        </div>
+        <div class="input-container">
+            <input type="email" name="email" id="" placeholder="Email">
+        </div>
+
+        <div class="input-container">
+            <input type="password" name="password" id="" placeholder="Password">
+        </div>
+        
+        <input type="submit" value="Signup" class="input-submit-form">
+    </form>
+</div>
+
+{% endblock %}

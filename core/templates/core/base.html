@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'core/css/base.css' %}">
+    {% block css %}
+    {% endblock %}
     <title>ToDo app</title>
 </head>
 <body>
@@ -13,10 +15,20 @@
         <h1>ToDo APP</h1>
 
         <ul class="nav-list">
-            <li class="nav-item">LogIn</li>
-            <li class="nav-item">SignUp</li>
+            {% if not user_is_authenticated %}
+            <a href="">
+                <li class="nav-item">LogIn</li>
+            </a>
+            <a href="{% url 'singup' %}">
+                <li class="nav-item">SignUp</li>
+            </a>
             <li class="nav-item">About
             </li>
+            {% else %}
+            <li class="nav-item">About
+            </li>
+            <li class="nav-item">Logout</li>
+            {% endif %}
         </ul>
     </nav>
     {% endblock %}
